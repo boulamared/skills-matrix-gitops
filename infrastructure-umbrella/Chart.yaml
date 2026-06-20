@@ -1,0 +1,12 @@
+apiVersion: v2
+name: infrastructure-umbrella
+description: Parent chart for Skills Matrix local infrastructure
+type: application
+version: 1.0.0
+dependencies:
+  - name: postgresql
+    version: 15.5.x
+    repository: https://charts.bitnami.com/bitnami
+  - name: kafka
+    version: 30.x.x
+    repository: https://charts.bitnami.com/bitnami
