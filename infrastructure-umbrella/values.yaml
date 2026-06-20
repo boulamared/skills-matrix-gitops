@@ -1,4 +1,6 @@
 postgresql:
+  image:
+    tag: "15"
   global:
     postgresql:
       auth:
@@ -11,6 +13,8 @@ postgresql:
       scriptsConfigMap: postgres-init-script
 
 kafka:
+  image:
+    tag: "3.8"
   kraft:
     enabled: true  # Activates KRaft Mode (No ZooKeeper required)
   zookeeper:
