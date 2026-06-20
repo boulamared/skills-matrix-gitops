@@ -10,3 +10,6 @@ dependencies:
   - name: kafka
     version: 30.x.x
     repository: https://charts.bitnami.com/bitnami
+  - name: keycloak
+    version: 16.x.x
+    repository: https://charts.bitnami.com/bitnami

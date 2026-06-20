@@ -27,3 +27,28 @@ kafka:
   zookeeper:
     enabled: false # Explicitly turns off ZooKeeper
   replicaCount: 1  # Single broker cluster for local development
+
+
+keycloak:
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/keycloak
+  
+  # Disable the built-in database since we use our shared PostgreSQL
+  postgresql:
+    enabled: false
+  
+  # Route Keycloak to our existing database instance
+  externalDatabase:
+    host: infrastructure-stack-postgresql
+    port: 5432
+    user: postgres
+    database: keycloak_db
+    existingSecret: "postgres-auth-secret"
+    existingSecretPasswordKey: "postgres-password"
+  
+  # Initial Keycloak Admin Credentials
+  auth:
+    adminUser: admin
+    existingSecret: "keycloak-admin-secret"
+    passwordSecretKey: "keycloak-password"
