@@ -1,3 +1,9 @@
+global:
+  postgresql:
+    auth:
+      database: "admin_db"
+      postgresUser: "postgres"
+
 postgresql:
   image:
     registry: docker.io
@@ -5,7 +11,6 @@ postgresql:
   global:
     postgresql:
       auth:
-        database: admin_db
         existingSecret: "postgres-auth-secret"
         secretKeys:
           adminPasswordKey: "postgres-password"
