@@ -7,7 +7,8 @@ data:
   init-schemas.sh: |
     #!/bin/bash
     set -e
-    psql -v ON_ERROR_STOP=1 --username "postgres" --dbname "admin_db" <<-EOSQL
+    # Prefixing with PGPASSWORD forces psql to authenticate non-interactively
+    PGPASSWORD="$POSTGRES_PASSWORD" psql -v ON_ERROR_STOP=1 --username "{{ .Values.global.postgresql.auth.postgresUser }}" --dbname "{{ .Values.global.postgresql.auth.database }}" <<-EOSQL
         CREATE DATABASE keycloak_db;
         CREATE DATABASE referential_db;
         CREATE DATABASE collection_db;
