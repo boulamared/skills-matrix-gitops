@@ -10,3 +10,7 @@ dependencies:
   - name: kafka
     version: 30.x.x
     repository: https://charts.bitnami.com/bitnami
+
+
+
+    
