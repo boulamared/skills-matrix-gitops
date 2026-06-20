@@ -1,6 +1,7 @@
 postgresql:
   image:
-    tag: "15.10.0"
+    registry: docker.io
+    repository: bitnamilegacy/postgresql
   global:
     postgresql:
       auth:
@@ -14,7 +15,8 @@ postgresql:
 
 kafka:
   image:
-    tag: "3.8.1"
+    registry: docker.io
+    repository: bitnamilegacy/kafka
   kraft:
     enabled: true  # Activates KRaft Mode (No ZooKeeper required)
   zookeeper:
